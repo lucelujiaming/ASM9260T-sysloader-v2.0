@@ -1,0 +1,34 @@
+## 
+## Alpha Scale AS3310X IronPalms Console
+## He Yong, AlpScale Software Engineering, heyong@alpscale
+## 
+
+kernel-y 				+= startup.o
+#kernel-y 				+= device.o
+kernel-y  				+= main.o string.o
+#kernel-y  				+= printf.o vsprintf.o  
+kernel-$(CONFIG_COMMAND_ONLY)		+= console.o cmd.o
+kernel-$(CONFIG_PIN_CONTROL)		+= pincontrol.o
+kernel-$(CONFIG_IRQ_AS3310D)		+= irq.o interrupt.o
+kernel-$(CONFIG_IRQ_AS3310E)  		+= interrupt.o
+kernel-$(CONFIG_ENABLE_DMA) 		+= dma.o
+kernel-$(CONFIG_TIMER)  		+= time.o
+
+
+
+# Objects we will link into kernel / subdirs we need to visit
+kernel-dir	:= \
+		kernel/mmlib/ \
+
+-include	$(patsubst %/, %/Kbuild, $(kernel-dir))
+
+kernel-obj =  $(patsubst %, kernel/%, $(kernel-y))
+obj-y +=  $(kernel-obj)
+ 
+kernel/objs: $(kernel-obj)  $(patsubst %/, %/objs, $(kernel-dir))
+#	@echo in kernel ADD $(kernel-obj) to obj-y
+#	@echo obj-y = $(obj-y)
+
+# dependece
+
+

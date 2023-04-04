@@ -1,0 +1,370 @@
+/*
+ * Automatically generated C config: don't edit
+ * SramLoader version: 0.1.0
+ */
+#define AUTOCONF_TIMESTAMP "2012-06-28 14:10:31 CST"
+
+#define CONFIG_HAVE_DOT_CONFIG 1
+#define ENABLE_HAVE_DOT_CONFIG 1
+#define USE_HAVE_DOT_CONFIG(...) __VA_ARGS__
+#define SKIP_HAVE_DOT_CONFIG(...)
+
+/*
+ * System Settings
+ */
+#undef CONFIG_AS3310D
+#define ENABLE_AS3310D 0
+#define USE_AS3310D(...)
+#define SKIP_AS3310D(...) __VA_ARGS__
+#define CONFIG_AS3310E 1
+#define ENABLE_AS3310E 1
+#define USE_AS3310E(...) __VA_ARGS__
+#define SKIP_AS3310E(...)
+#define CONFIG_BOARD_AS3310_MP4_DEMO 1
+#define ENABLE_BOARD_AS3310_MP4_DEMO 1
+#define USE_BOARD_AS3310_MP4_DEMO(...) __VA_ARGS__
+#define SKIP_BOARD_AS3310_MP4_DEMO(...)
+#undef CONFIG_BOARD_AS3310_DEV
+#define ENABLE_BOARD_AS3310_DEV 0
+#define USE_BOARD_AS3310_DEV(...)
+#define SKIP_BOARD_AS3310_DEV(...) __VA_ARGS__
+#undef CONFIG_BOARD_AS3310E_FPGA_QQ
+#define ENABLE_BOARD_AS3310E_FPGA_QQ 0
+#define USE_BOARD_AS3310E_FPGA_QQ(...)
+#define SKIP_BOARD_AS3310E_FPGA_QQ(...) __VA_ARGS__
+#define CONFIG_CPU_CLK180 1
+#define ENABLE_CPU_CLK180 1
+#define USE_CPU_CLK180(...) __VA_ARGS__
+#define SKIP_CPU_CLK180(...)
+#undef CONFIG_CPU_CLK160
+#define ENABLE_CPU_CLK160 0
+#define USE_CPU_CLK160(...)
+#define SKIP_CPU_CLK160(...) __VA_ARGS__
+#undef CONFIG_CPU_CLK120
+#define ENABLE_CPU_CLK120 0
+#define USE_CPU_CLK120(...)
+#define SKIP_CPU_CLK120(...) __VA_ARGS__
+#undef CONFIG_CPU_CLK80
+#define ENABLE_CPU_CLK80 0
+#define USE_CPU_CLK80(...)
+#define SKIP_CPU_CLK80(...) __VA_ARGS__
+#undef CONFIG_CPU_INTERNAL_CLK120
+#define ENABLE_CPU_INTERNAL_CLK120 0
+#define USE_CPU_INTERNAL_CLK120(...)
+#define SKIP_CPU_INTERNAL_CLK120(...) __VA_ARGS__
+#undef CONFIG_SDRAM_8MB
+#define ENABLE_SDRAM_8MB 0
+#define USE_SDRAM_8MB(...)
+#define SKIP_SDRAM_8MB(...) __VA_ARGS__
+#define CONFIG_SDRAM_16MB 1
+#define ENABLE_SDRAM_16MB 1
+#define USE_SDRAM_16MB(...) __VA_ARGS__
+#define SKIP_SDRAM_16MB(...)
+#undef CONFIG_COMMAND_ONLY
+#define ENABLE_COMMAND_ONLY 0
+#define USE_COMMAND_ONLY(...)
+#define SKIP_COMMAND_ONLY(...) __VA_ARGS__
+#undef CONFIG_CMD_MEMFILL
+#define ENABLE_CMD_MEMFILL 0
+#define USE_CMD_MEMFILL(...)
+#define SKIP_CMD_MEMFILL(...) __VA_ARGS__
+#undef CONFIG_CMD_MEMCMP
+#define ENABLE_CMD_MEMCMP 0
+#define USE_CMD_MEMCMP(...)
+#define SKIP_CMD_MEMCMP(...) __VA_ARGS__
+#undef CONFIG_CMD_CP
+#define ENABLE_CMD_CP 0
+#define USE_CMD_CP(...)
+#define SKIP_CMD_CP(...) __VA_ARGS__
+#undef CONFIG_CMD_MEMMOV
+#define ENABLE_CMD_MEMMOV 0
+#define USE_CMD_MEMMOV(...)
+#define SKIP_CMD_MEMMOV(...) __VA_ARGS__
+#undef CONFIG_CMD_MD
+#define ENABLE_CMD_MD 0
+#define USE_CMD_MD(...)
+#define SKIP_CMD_MD(...) __VA_ARGS__
+#undef CONFIG_CMD_MW
+#define ENABLE_CMD_MW 0
+#define USE_CMD_MW(...)
+#define SKIP_CMD_MW(...) __VA_ARGS__
+#undef CONFIG_CMD_LOADU
+#define ENABLE_CMD_LOADU 0
+#define USE_CMD_LOADU(...)
+#define SKIP_CMD_LOADU(...) __VA_ARGS__
+#undef CONFIG_CMD_RAMTEST
+#define ENABLE_CMD_RAMTEST 0
+#define USE_CMD_RAMTEST(...)
+#define SKIP_CMD_RAMTEST(...) __VA_ARGS__
+#undef CONFIG_CMD_RUN
+#define ENABLE_CMD_RUN 0
+#define USE_CMD_RUN(...)
+#define SKIP_CMD_RUN(...) __VA_ARGS__
+#undef CONFIG_CMD_SLECTPLAT
+#define ENABLE_CMD_SLECTPLAT 0
+#define USE_CMD_SLECTPLAT(...)
+#define SKIP_CMD_SLECTPLAT(...) __VA_ARGS__
+#undef CONFIG_CMD_SETUP
+#define ENABLE_CMD_SETUP 0
+#define USE_CMD_SETUP(...)
+#define SKIP_CMD_SETUP(...) __VA_ARGS__
+
+/*
+ * Build Settings
+ */
+#undef CONFIG_BOOT_HEADER
+#define ENABLE_BOOT_HEADER 0
+#define USE_BOOT_HEADER(...)
+#define SKIP_BOOT_HEADER(...) __VA_ARGS__
+#undef CONFIG_CFLAG_WALL
+#define ENABLE_CFLAG_WALL 0
+#define USE_CFLAG_WALL(...)
+#define SKIP_CFLAG_WALL(...) __VA_ARGS__
+#undef CONFIG_DEBUG_MODE
+#define ENABLE_DEBUG_MODE 0
+#define USE_DEBUG_MODE(...)
+#define SKIP_DEBUG_MODE(...) __VA_ARGS__
+#undef CONFIG_IRQ_AS3310D
+#define ENABLE_IRQ_AS3310D 0
+#define USE_IRQ_AS3310D(...)
+#define SKIP_IRQ_AS3310D(...) __VA_ARGS__
+#undef CONFIG_IRQ_AS3310E
+#define ENABLE_IRQ_AS3310E 0
+#define USE_IRQ_AS3310E(...)
+#define SKIP_IRQ_AS3310E(...) __VA_ARGS__
+#undef CONFIG_PIN_CONTROL
+#define ENABLE_PIN_CONTROL 0
+#define USE_PIN_CONTROL(...)
+#define SKIP_PIN_CONTROL(...) __VA_ARGS__
+#undef CONFIG_TIMER
+#define ENABLE_TIMER 0
+#define USE_TIMER(...)
+#define SKIP_TIMER(...) __VA_ARGS__
+#undef CONFIG_TIMER_1
+#define ENABLE_TIMER_1 0
+#define USE_TIMER_1(...)
+#define SKIP_TIMER_1(...) __VA_ARGS__
+#undef CONFIG_TIMER_DEBUG
+#define ENABLE_TIMER_DEBUG 0
+#define USE_TIMER_DEBUG(...)
+#define SKIP_TIMER_DEBUG(...) __VA_ARGS__
+#undef CONFIG_TIMER_LIST
+#define ENABLE_TIMER_LIST 0
+#define USE_TIMER_LIST(...)
+#define SKIP_TIMER_LIST(...) __VA_ARGS__
+#undef CONFIG_TIMER_LIST_DEBUG
+#define ENABLE_TIMER_LIST_DEBUG 0
+#define USE_TIMER_LIST_DEBUG(...)
+#define SKIP_TIMER_LIST_DEBUG(...) __VA_ARGS__
+#undef CONFIG_ENABLE_DMA
+#define ENABLE_ENABLE_DMA 0
+#define USE_ENABLE_DMA(...)
+#define SKIP_ENABLE_DMA(...) __VA_ARGS__
+
+/*
+ * Test Device Settings
+ */
+#undef CONFIG_USB
+#define ENABLE_USB 0
+#define USE_USB(...)
+#define SKIP_USB(...) __VA_ARGS__
+#undef CONFIG_USB_HS
+#define ENABLE_USB_HS 0
+#define USE_USB_HS(...)
+#define SKIP_USB_HS(...) __VA_ARGS__
+#undef CONFIG_USB_DEBUG
+#define ENABLE_USB_DEBUG 0
+#define USE_USB_DEBUG(...)
+#define SKIP_USB_DEBUG(...) __VA_ARGS__
+#undef CONFIG_DBUFFER
+#define ENABLE_DBUFFER 0
+#define USE_DBUFFER(...)
+#define SKIP_DBUFFER(...) __VA_ARGS__
+#undef CONFIG_USB_PACKET_64
+#define ENABLE_USB_PACKET_64 0
+#define USE_USB_PACKET_64(...)
+#define SKIP_USB_PACKET_64(...) __VA_ARGS__
+#undef CONFIG_USB_PACKET_128
+#define ENABLE_USB_PACKET_128 0
+#define USE_USB_PACKET_128(...)
+#define SKIP_USB_PACKET_128(...) __VA_ARGS__
+#undef CONFIG_USB_PACKET_256
+#define ENABLE_USB_PACKET_256 0
+#define USE_USB_PACKET_256(...)
+#define SKIP_USB_PACKET_256(...) __VA_ARGS__
+#undef CONFIG_USB_PACKET_512
+#define ENABLE_USB_PACKET_512 0
+#define USE_USB_PACKET_512(...)
+#define SKIP_USB_PACKET_512(...) __VA_ARGS__
+#undef CONFIG_UDISK_MEM
+#define ENABLE_UDISK_MEM 0
+#define USE_UDISK_MEM(...)
+#define SKIP_UDISK_MEM(...) __VA_ARGS__
+#undef CONFIG_UDISK_AFTL
+#define ENABLE_UDISK_AFTL 0
+#define USE_UDISK_AFTL(...)
+#define SKIP_UDISK_AFTL(...) __VA_ARGS__
+#undef CONFIG_UDISK_SD_MMC
+#define ENABLE_UDISK_SD_MMC 0
+#define USE_UDISK_SD_MMC(...)
+#define SKIP_UDISK_SD_MMC(...) __VA_ARGS__
+#undef CONFIG_LCD
+#define ENABLE_LCD 0
+#define USE_LCD(...)
+#define SKIP_LCD(...) __VA_ARGS__
+#undef CONFIG_LCD_CONTROL
+#define ENABLE_LCD_CONTROL 0
+#define USE_LCD_CONTROL(...)
+#define SKIP_LCD_CONTROL(...) __VA_ARGS__
+#undef CONFIG_LCD_IF
+#define ENABLE_LCD_IF 0
+#define USE_LCD_IF(...)
+#define SKIP_LCD_IF(...) __VA_ARGS__
+#undef CONFIG_LCD_240x320
+#define ENABLE_LCD_240x320 0
+#define USE_LCD_240x320(...)
+#define SKIP_LCD_240x320(...) __VA_ARGS__
+#undef CONFIG_ILI_9320RGB
+#define ENABLE_ILI_9320RGB 0
+#define USE_ILI_9320RGB(...)
+#define SKIP_ILI_9320RGB(...) __VA_ARGS__
+#undef CONFIG_TRUELY_43
+#define ENABLE_TRUELY_43 0
+#define USE_TRUELY_43(...)
+#define SKIP_TRUELY_43(...) __VA_ARGS__
+#undef CONFIG_LCD_IRQ
+#define ENABLE_LCD_IRQ 0
+#define USE_LCD_IRQ(...)
+#define SKIP_LCD_IRQ(...) __VA_ARGS__
+#undef CONFIG_LCD_CYCLED
+#define ENABLE_LCD_CYCLED 0
+#define USE_LCD_CYCLED(...)
+#define SKIP_LCD_CYCLED(...) __VA_ARGS__
+#undef CONFIG_ASC_DISPLAY
+#define ENABLE_ASC_DISPLAY 0
+#define USE_ASC_DISPLAY(...)
+#define SKIP_ASC_DISPLAY(...) __VA_ARGS__
+#define CONFIG_NAND2 1
+#define ENABLE_NAND2 1
+#define USE_NAND2(...) __VA_ARGS__
+#define SKIP_NAND2(...)
+#undef CONFIG_NAND2_VERIFY
+#define ENABLE_NAND2_VERIFY 0
+#define USE_NAND2_VERIFY(...)
+#define SKIP_NAND2_VERIFY(...) __VA_ARGS__
+#undef CONFIG_SPI_FLASH
+#define ENABLE_SPI_FLASH 0
+#define USE_SPI_FLASH(...)
+#define SKIP_SPI_FLASH(...) __VA_ARGS__
+#undef CONFIG_NAND
+#define ENABLE_NAND 0
+#define USE_NAND(...)
+#define SKIP_NAND(...) __VA_ARGS__
+#undef CONFIG_NAND_VERIFY
+#define ENABLE_NAND_VERIFY 0
+#define USE_NAND_VERIFY(...)
+#define SKIP_NAND_VERIFY(...) __VA_ARGS__
+#undef CONFIG_NAND_USE_OWN_BUFFER
+#define ENABLE_NAND_USE_OWN_BUFFER 0
+#define USE_NAND_USE_OWN_BUFFER(...)
+#define SKIP_NAND_USE_OWN_BUFFER(...) __VA_ARGS__
+#undef CONFIG_AFTL
+#define ENABLE_AFTL 0
+#define USE_AFTL(...)
+#define SKIP_AFTL(...) __VA_ARGS__
+#define CONFIG_AFTL_RESERVED_SIZE_MB 
+#define ENABLE_AFTL_RESERVED_SIZE_MB 1
+#define USE_AFTL_RESERVED_SIZE_MB(...) __VA_ARGS__
+#define SKIP_AFTL_RESERVED_SIZE_MB(...)
+#undef CONFIG_AFTL_SIZE_ALL
+#define ENABLE_AFTL_SIZE_ALL 0
+#define USE_AFTL_SIZE_ALL(...)
+#define SKIP_AFTL_SIZE_ALL(...) __VA_ARGS__
+#undef CONFIG_AFTL_SIZE_XXMB
+#define ENABLE_AFTL_SIZE_XXMB 0
+#define USE_AFTL_SIZE_XXMB(...)
+#define SKIP_AFTL_SIZE_XXMB(...) __VA_ARGS__
+#define CONFIG_AFTL_SIZE_MB 
+#define ENABLE_AFTL_SIZE_MB 1
+#define USE_AFTL_SIZE_MB(...) __VA_ARGS__
+#define SKIP_AFTL_SIZE_MB(...)
+#undef CONFIG_AFTL_DEBUG
+#define ENABLE_AFTL_DEBUG 0
+#define USE_AFTL_DEBUG(...)
+#define SKIP_AFTL_DEBUG(...) __VA_ARGS__
+#undef CONFIG_DEVMEM
+#define ENABLE_DEVMEM 0
+#define USE_DEVMEM(...)
+#define SKIP_DEVMEM(...) __VA_ARGS__
+#undef CONFIG_DEVMEM_IN_SDRAM
+#define ENABLE_DEVMEM_IN_SDRAM 0
+#define USE_DEVMEM_IN_SDRAM(...)
+#define SKIP_DEVMEM_IN_SDRAM(...) __VA_ARGS__
+#define CONFIG_DEVMEM_SDRAM_BASE ""
+#define ENABLE_DEVMEM_SDRAM_BASE 1
+#define USE_DEVMEM_SDRAM_BASE(...) __VA_ARGS__
+#define SKIP_DEVMEM_SDRAM_BASE(...)
+#define CONFIG_DEVMEM_SIZE_KB 
+#define ENABLE_DEVMEM_SIZE_KB 1
+#define USE_DEVMEM_SIZE_KB(...) __VA_ARGS__
+#define SKIP_DEVMEM_SIZE_KB(...)
+#undef CONFIG_DEVMEM_DEBUG_CMD
+#define ENABLE_DEVMEM_DEBUG_CMD 0
+#define USE_DEVMEM_DEBUG_CMD(...)
+#define SKIP_DEVMEM_DEBUG_CMD(...) __VA_ARGS__
+#undef CONFIG_GPIO_SPI
+#define ENABLE_GPIO_SPI 0
+#define USE_GPIO_SPI(...)
+#define SKIP_GPIO_SPI(...) __VA_ARGS__
+#undef CONFIG_RTC
+#define ENABLE_RTC 0
+#define USE_RTC(...)
+#define SKIP_RTC(...) __VA_ARGS__
+#undef CONFIG_I2C
+#define ENABLE_I2C 0
+#define USE_I2C(...)
+#define SKIP_I2C(...) __VA_ARGS__
+#undef CONFIG_SOUND
+#define ENABLE_SOUND 0
+#define USE_SOUND(...)
+#define SKIP_SOUND(...) __VA_ARGS__
+#undef CONFIG_SOUND_AS3310_SND_DEBUG
+#define ENABLE_SOUND_AS3310_SND_DEBUG 0
+#define USE_SOUND_AS3310_SND_DEBUG(...)
+#define SKIP_SOUND_AS3310_SND_DEBUG(...) __VA_ARGS__
+#undef CONFIG_SOUND_DRIVER_TEST
+#define ENABLE_SOUND_DRIVER_TEST 0
+#define USE_SOUND_DRIVER_TEST(...)
+#define SKIP_SOUND_DRIVER_TEST(...) __VA_ARGS__
+#undef CONFIG_SYS_MONITOR
+#define ENABLE_SYS_MONITOR 0
+#define USE_SYS_MONITOR(...)
+#define SKIP_SYS_MONITOR(...) __VA_ARGS__
+#undef CONFIG_PWM
+#define ENABLE_PWM 0
+#define USE_PWM(...)
+#define SKIP_PWM(...) __VA_ARGS__
+#undef CONFIG_SD_MMC
+#define ENABLE_SD_MMC 0
+#define USE_SD_MMC(...)
+#define SKIP_SD_MMC(...) __VA_ARGS__
+#undef CONFIG_FM_RADIO
+#define ENABLE_FM_RADIO 0
+#define USE_FM_RADIO(...)
+#define SKIP_FM_RADIO(...) __VA_ARGS__
+#undef CONFIG_FM_USE_AD_DA_LOOP
+#define ENABLE_FM_USE_AD_DA_LOOP 0
+#define USE_FM_USE_AD_DA_LOOP(...)
+#define SKIP_FM_USE_AD_DA_LOOP(...) __VA_ARGS__
+
+/*
+ *  
+ */
+
+/*
+ * Applications --- 
+ */
+
+/*
+ *  
+ */

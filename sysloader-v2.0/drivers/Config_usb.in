@@ -1,0 +1,83 @@
+menuconfig USB                          
+       bool "USB Device"     
+       default y    
+       depends on (!CPU_CLK180)                
+       help                         
+	USB interface for data flow 
+if USB
+  	 
+
+config USB_HS
+	bool "HIGHSPEED MODE (Y/N)"
+	default y
+	depends on USB
+	help
+	 we support both usb highpeed and fullspeed 
+
+config USB_DEBUG
+	bool "USB DEBUG MODE (Y/N)"
+	default n
+	depends on  USB
+	help
+	 for usb debug
+	 
+config DBUFFER
+	bool "USB DOUBLE BUFFERING MODE (Y/N)"
+	default y
+	depends on  USB
+	help
+	 select double buffering will speed up usb transfering
+	 
+comment "USB Package Size --- "
+
+choice
+	prompt "Choose Package Size"
+	default USB_PACKET_64
+	depends on  USB
+	help
+	 if highseed,the package size can be from 64 to 512 bytes
+	 else the size is default and must be 64 bytes
+	 
+config USB_PACKET_64
+	bool "64 bytes"
+
+config USB_PACKET_128
+	depends on  USB_HS
+	bool "128 bytes"
+	
+config USB_PACKET_256
+	depends on  USB_HS
+	bool "256 bytes"
+	
+config USB_PACKET_512
+	depends on  USB_HS
+	bool "512 bytes"
+	
+endchoice
+	 
+comment "USB UDISK Device --- "
+
+config UDISK_MEM
+	bool "USB U-DISK mem device"
+	default n
+	depends on  DEVMEM
+	help
+	 use memory device as u-disk
+
+config UDISK_AFTL
+	bool "USB U-DISK nand-aftl device"
+	default y
+	depends on AFTL
+	help
+	 use nand-aftl device as u-disk
+	 
+config UDISK_SD_MMC
+	bool "USB U-DISK SD/MMC Card device"
+	default n
+	depends on SD_MMC
+	help
+	 use SD/MMC Card device as u-disk
+	 
+	 
+endif # USB
+

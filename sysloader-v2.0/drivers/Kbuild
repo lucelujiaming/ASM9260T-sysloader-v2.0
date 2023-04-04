@@ -1,0 +1,34 @@
+## 
+## Alpha Scale AS3310X IronPalms Console
+## He Yong, AlpScale Software Engineering, heyong@alpscale
+## 
+
+drivers-y  				+= serial.o
+drivers-$(CONFIG_I2C)  			+= i2c.o
+drivers-$(CONFIG_NAND)  		+= nand_search.o flash.o ecc.o
+drivers-$(CONFIG_NAND2)  		+= nand_search.o nand_hw2.o
+drivers-$(CONFIG_SPI_FLASH)  		+= spi_flash.o
+drivers-$(CONFIG_DEVMEM)		+= devmem.o
+drivers-$(CONFIG_GPIO_SPI)  		+= gpio_spi.o
+drivers-$(CONFIG_LCD_CONTROL)  		+= lcd.o
+drivers-$(CONFIG_LCD_240x320)  		+= lcdif.o
+drivers-$(CONFIG_ASC_DISPLAY)		+= Display.o
+drivers-$(CONFIG_SOUND)			+= sound.o
+drivers-$(CONFIG_RTC)			+= rtc.o
+drivers-$(CONFIG_SYS_MONITOR)		+= as3310x_monitor.o
+drivers-$(CONFIG_SOUND_DRIVER_TEST) 	+= mp3_test.o
+drivers-$(CONFIG_PWM) 			+= pwm.o
+drivers-$(CONFIG_AFTL)			+= nftl_core.o nftl_mount.o 
+drivers-$(CONFIG_USB)			+= usb.o usb_bulkonly.o
+drivers-$(CONFIG_SD_MMC)		+= sd_mmc.o 
+drivers-$(CONFIG_FM_RADIO)		+= fm_radio.o 
+
+
+
+drivers-obj =  $(patsubst %, drivers/%, $(drivers-y))
+obj-y +=  $(drivers-obj)
+
+drivers/objs: $(drivers-obj)
+#	@echo in drivers ADD $(drivers-obj) to obj-y
+#	@echo obj-y = $(obj-y)
+ 

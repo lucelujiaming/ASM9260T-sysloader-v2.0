@@ -1,0 +1,276 @@
+#
+# For a description of the syntax of this configuration file,
+# see scripts/kbuild/config-language.txt.
+#
+
+mainmenu "Ironpalms Configuration"
+
+config HAVE_DOT_CONFIG
+	bool
+	default y
+
+
+menu "System Settings"
+
+choice
+	prompt "Choose CPU Type"
+	default AS3310D
+	help
+	 
+config AS3310D
+	bool "AS3310D"
+
+config AS3310E
+	bool "AS3310E"
+	
+	
+endchoice
+
+choice
+	prompt "Choose Board Type"
+	default BOARD_AS3310_MP4_DEMO
+	help
+	 
+config BOARD_AS3310_MP4_DEMO
+	bool "MP4 Demo Board"
+
+config BOARD_AS3310_DEV
+	bool "Develop Board"
+	
+config BOARD_AS3310E_FPGA_QQ
+	bool "AS3310E FPGA QQ Board"
+	
+endchoice
+
+choice
+	prompt "Choose CPU Clock"
+	default CPU_CLK160
+	help
+	 
+config CPU_CLK180
+	bool "360/2 = 180MHz, USB Disable"
+
+config CPU_CLK160
+	bool "480/3 = 160MHz, USB ok"
+	
+config CPU_CLK120
+	bool "480/4 = 120MHz, USB ok"
+	
+config CPU_CLK80
+	bool "480/6 = 80MHz, USB ok"
+	
+config CPU_INTERNAL_CLK120
+	bool "Core PLL 240/2 = 120MHz, USB Full Speed ok"
+	
+endchoice
+
+
+choice
+	prompt "SDRAM Size"
+	default SDRAM_8MB
+	help	 
+
+config SDRAM_8MB
+	bool "8MB"
+
+config SDRAM_16MB
+	bool "16MB"
+	
+endchoice
+
+
+menuconfig COMMAND_ONLY
+	bool "Command Console Support"
+	default y
+	help
+	 Enable Command Console
+	 
+if COMMAND_ONLY
+    
+config CMD_MEMFILL	
+	bool "memfill"
+	default n
+	help
+         " #memfill ADDR Length data",
+         "Fill Memory/Regs with one input data"
+	    
+config CMD_MEMCMP
+	bool "mcmp"
+	default n
+	help
+         " #mcmp src_addr des_addr length",
+         "Compare memory"
+	    
+config CMD_CP
+	bool "cp"
+	default n
+	help
+         " #cp src_addr des_addr length",
+         "Memory Copy"
+	    
+config CMD_MEMMOV
+	bool "mmov"
+	default n
+	help
+         " #mmov src_addr des_addr length",
+         "Memory Move (for overlaped memcpy)");
+	    
+config CMD_MD
+	bool "md"
+	default y
+	help
+         " #md ADDR [Length]",
+         "Memory/Reg Display");
+	    
+config CMD_MW
+	bool "mw"
+	default n
+	help
+         " #mw [b w l] ADDR data",
+         "Write ONE Memory/Regs 8/16/32 bit mode selectable,no outputs");
+	    
+config CMD_LOADU
+	bool "loadu"
+	default n
+	help
+         " #loadu memaddr",
+         "Load a binary file from UART to Memory");
+	    
+config CMD_RAMTEST
+	bool "ramtest"
+	default n
+	help
+         " #ramtest ADDR Length [debug]",
+         "test SDRAM");
+	    
+config CMD_RUN
+	bool "run"
+	default y
+	help
+         " #run ADDR [args]",
+         "run ASM/C entry application at ADDR (returnable)");
+	    
+config CMD_SLECTPLAT
+	bool "selplat"
+	default y
+	help
+         " #selplat 1/2 (1-win32, 2-linux)",
+         "select platform to enable fine display/operation");
+	    
+config CMD_SETUP
+	bool "setup"
+	default n
+	help
+         " #setup [device] [options]\n\
+         options:\n\
+         1,nand [Cen_num row col PageShift BlockPageShift]\n\
+         2,nor Cen_num\n\
+         3,sdram Cen row col delay",
+         "Setup chosen device ready to work\n\
+         Assign pins & call init_functions");   
+	    
+
+
+endif # COMMAND_ONLY
+
+
+endmenu
+
+menu "Build Settings"
+
+
+config BOOT_HEADER
+	bool "Build with Uart Header"
+	default n
+	help
+	 Build with UART header, using asTTY to Boot
+	 if you want to Boot using USB or Nand, do NOT choose     
+
+config CFLAG_WALL
+	bool "Add Compiler with -Wall Option"
+	default n
+	help
+	 Add Compiler with -Wall Option
+
+config DEBUG_MODE
+	bool "Debug Mode"
+	default n
+	help
+	 Debug Mode , with Nand write command    
+
+   
+config IRQ_AS3310D
+	bool "Enable IRQ"
+	default y
+	depends on AS3310D
+	select IRQ
+	help
+	 Enable Interrupt
+	 
+config IRQ_AS3310E
+	bool "Enable IRQ"
+	default y
+	depends on AS3310E
+	select IRQ
+	help
+	 Enable Interrupt
+ 
+
+config PIN_CONTROL
+	bool "Enable PIN CONTROL"
+	default y
+	help
+	 Enable Pin Control
+
+config TIMER
+	bool "Enable System Timer"
+	default y
+	help
+	 Enable System Timer
+	 
+config TIMER_1
+	bool "Enable Timer 1"
+	default n
+	depends on TIMER
+	help
+	 Enable Timer 1
+
+config TIMER_DEBUG
+	bool "System Timer Debug"
+	default n
+	depends on TIMER
+	help
+	 System Timer Debug Message
+	 
+config TIMER_LIST
+	bool "System Timer List Support"
+	default n
+	depends on TIMER
+	help
+	 System Timer List , support add_timer. mod_timer
+
+config TIMER_LIST_DEBUG
+	bool "System Timer List Debug"
+	default n
+	depends on TIMER_LIST
+	help
+	 System Timer List Debug Message
+
+config ENABLE_DMA
+	bool "DMA support"
+	default y
+	help
+	 enable dma support
+	 
+endmenu
+
+
+
+
+source drivers/Config.in
+
+comment " "
+comment "Applications --- "
+comment " "
+
+

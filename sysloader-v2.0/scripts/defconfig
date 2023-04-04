@@ -1,0 +1,24 @@
+#
+# Automatically generated make config: don't edit
+# NuwaStone version: 0.1.0
+# Tue Dec  4 18:02:50 2007
+#
+CONFIG_HAVE_DOT_CONFIG=y
+
+#
+# Build Settings
+#
+CONFIG_BOOT_HEADER=y
+CONFIG_DEBUG_MODE=y
+
+#
+# Device Settings
+#
+# CONFIG_SDRAM_8MB is not set
+CONFIG_SDRAM_16MB=y
+# CONFIG_SDRAM_32MB is not set
+# CONFIG_SDRAM_64MB is not set
+
+#
+# Applets
+#

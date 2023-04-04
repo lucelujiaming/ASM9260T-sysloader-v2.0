@@ -1,0 +1,14 @@
+## 
+## Alpha Scale AS3310X IronPalms Console
+## He Yong, AlpScale Software Engineering, heyong@alpscale
+## 
+
+mmlib-y  += #memcpy.o memset.o memzero.o #memmove.o cache-v5te.o
+
+
+mmlib-obj =  $(patsubst %, kernel/mmlib/%, $(mmlib-y))
+obj-y +=  $(mmlib-obj)
+ 
+kernel/mmlib/objs: $(mmlib-obj)  
+#	@echo in mmlib ADD $(mmlib-obj) to obj-y
+#	@echo obj-y = $(obj-y)

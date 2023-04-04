@@ -1,0 +1,302 @@
+#
+# For a description of the syntax of this configuration file,
+# see scripts/kbuild/config-language.txt.
+#
+
+
+menu "Test Device Settings"
+
+source drivers/Config_usb.in	 
+
+
+menuconfig LCD
+	bool "LCD"
+	default y
+	depends on ENABLE_DMA && IRQ
+	help
+	 LCD support
+if LCD
+
+choice
+	prompt "LCD Type"
+	depends on LCD
+	default LCD_CONTROL
+	help
+	 determine which kind of lcd to output
+	 
+config LCD_CONTROL
+	bool "LCD Contorller"
+	help
+	 Enable LCD Contorller
+ 
+config LCD_IF
+	bool "LCD Interface"
+
+endchoice
+
+
+choice
+	prompt "LCDIF Panel"
+	depends on LCD_IF
+	default LCD_240x320
+	help
+	 choose lcd interface panel
+
+config LCD_240x320
+	bool "lcdif 240x320"
+	help
+
+endchoice
+
+
+choice
+	prompt "LCD Panel"
+	depends on LCD_CONTROL
+	default ILI_9320RGB
+	help
+	 choose lcd panel
+ 
+config ILI_9320RGB
+	bool "Ili9320 QVGA RGB Interface LCD"
+	select GPIO_SPI
+	help	
+	 This is an implementation of the ILI9320 LCD ,
+	 a 3.5" RGB Interface 262K color QVGA.
+	 The native resolution is 240*320.	 
+	
+config TRUELY_43
+	bool "Truely 4.0\" Wide Screen 480x272 TFT LCD"
+	help
+	 This is an implementation of the Truely 4.0" 480x272 TFT LCD.
+
+endchoice
+
+
+choice
+	prompt "LCD CONTROL DMA MODE"
+	depends on LCD_CONTROL
+	default LCD_IRQ
+	help
+	 choose lcd panel
+ 
+config LCD_IRQ
+	bool "LCD Control Use IRQ Mode"
+	help	
+	
+config LCD_CYCLED
+	bool "LCD Control Use Cycle Mode"
+	help
+
+endchoice
+
+endif # LCD
+
+config ASC_DISPLAY
+	bool "Enable Asc output in lcdif"
+	default n
+	depends on LCD_IF
+	help
+	 Enable Asc output in lcdif      
+
+
+menuconfig NAND2
+	bool "Nand Flash 2"
+	default y
+	help
+	 Enable Nand Flash
+	 
+if NAND2
+
+config NAND2_VERIFY
+	bool "Enable Nand Flash Write Page Verify"
+	default n
+	depends on NAND
+	help
+	 read back data from nand, and verify data using ecc
+	 
+endif    
+
+menuconfig SPI_FLASH
+	bool "SPI Flash"
+	default n
+	help
+	 Enable Spi Flash boot
+    
+
+
+menuconfig NAND
+	bool "Nand Flash"
+	default y
+	help
+	 Enable Nand Flash
+	 
+if NAND
+    
+config NAND_VERIFY
+	bool "Enable Nand Flash Write Page Verify"
+	default n
+	depends on NAND
+	help
+	 read back data from nand, and verify data using ecc
+	 
+config NAND_USE_OWN_BUFFER
+	bool "Nand Flash R/W Use driver's own buffer"
+	default y
+	depends on NAND
+	help
+	 nand flash read/write ops use driver's own 
+	 none-cached, 32-aligned buffer
+	 
+config AFTL
+	bool "Enable AFTL"
+	default y
+	depends on NAND
+	help
+	 Enable AFTL
+	 
+config AFTL_RESERVED_SIZE_MB
+	int "AFTL Reserved Boot Size (MB)"
+	default 16
+	depends on AFTL
+	help
+	 AFTL Reserved Boot Size (MB)
+
+choice
+	prompt "AFTL_SIZE"
+	depends on AFTL
+	default LCD_CONTROL
+	help
+	 determine which kind of lcd to output
+	 
+config AFTL_SIZE_ALL
+	bool "Use all available spaces"
+ 
+config AFTL_SIZE_XXMB
+	bool "Size MB"
+
+endchoice
+
+config AFTL_SIZE_MB
+	int "Set AFTL Size (MB)"
+	default 64
+	depends on AFTL_SIZE_XXMB
+	help
+	 AFTL Size (MB)
+
+config AFTL_DEBUG
+	bool "AFTL Debug Message"
+	default n
+	depends on AFTL
+	help
+	 AFTL Debug Message    
+	 
+endif # NAND
+
+
+menuconfig DEVMEM
+	bool "Memory Device"
+	default n
+	help
+	 Enable a Memory Block Device
+	 
+if DEVMEM
+
+config DEVMEM_IN_SDRAM
+	bool "Memory Device in SDRAM"
+	default y
+	depends on DEVMEM
+	help
+	 Memory Device in SDRAM
+	 
+config DEVMEM_SDRAM_BASE
+	string "Memory Device Base Address in SDRAM"
+	default 0x20000000
+	depends on DEVMEM_IN_SDRAM
+	help
+	 Memory Device Base Address
+	 
+config DEVMEM_SIZE_KB
+	int "Memory Device Size (KB)"
+	default 2048
+	depends on DEVMEM
+	help
+	 Memory Device Size in KB
+	 
+config DEVMEM_DEBUG_CMD
+	bool "Debug Command for Memory Device"
+	default n
+	depends on DEVMEM
+	help
+	 Debug Command for Memory Device	 
+
+endif #DEVMEM
+
+config GPIO_SPI
+	bool "GPIO_SPI"
+	depends on TIMER && IRQ
+	default y
+	help
+	 Enable GPIO_SPI
+	 
+config RTC
+	bool "RTC"
+	default y
+	help
+
+config I2C
+	bool "I2C"
+	default y
+	help
+
+config SOUND
+	bool "SOUND"
+	depends on ENABLE_DMA
+	default y
+	help
+
+config SOUND_AS3310_SND_DEBUG
+	bool "Sound Debug"
+	depends on SOUND
+	default n
+	help
+ 
+config SOUND_DRIVER_TEST
+	bool "Fake Mp3 Decode & Driver Test"
+	default n
+	depends on SOUND && COMMAND_AND_TASK
+	help
+	 let a memcopy simulate the decode to test driver
+       
+config SYS_MONITOR
+	bool "System Monitor"
+	depends on TIMER && BOARD_AS3310_MP4_DEMO
+	default n
+	help
+	
+config PWM
+	bool "Pwm Generator"
+	#depends on TIMER
+	default n
+	help
+	
+config SD_MMC
+       bool "SD/MMC card Driver"
+       default n
+       help
+       
+config FM_RADIO
+       bool "FM Radio Driver"
+       default n
+       help
+           
+config FM_USE_AD_DA_LOOP
+       bool "FM USE AD/DA Loop"
+       depends on FM_RADIO
+       default n
+       help
+	if choose, fm audio will pass the adc to dac then to headerphone AP
+	else it will direct to headerphone AP
+
+
+endmenu
+
